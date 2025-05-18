@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempoOff - Painel do Administrador</title>
+    <meta name="description" content="Painel de administração da plataforma TempoOff - Promoções em tempo real em Londrina">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Container do Dashboard -->
+    <div class="dashboard admin">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-logo">
+                <div class="logo-text">
+                    <span class="logo-text-primary">Ofer</span><span class="logo-text-secondary">tar</span>
+                </div>
+            </div>
+            
+            <nav class="dashboard-nav">
+                <div class="dashboard-nav-item active" data-target="dashboard-overview">
+                    <i class="bi bi-grid dashboard-nav-icon"></i>
+                    <span>Visão Geral</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-promotions">
+                    <i class="bi bi-tag dashboard-nav-icon"></i>
+                    <span>Promoções</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-establishments">
+                    <i class="bi bi-shop dashboard-nav-icon"></i>
+                    <span>Estabelecimentos</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-users">
+                    <i class="bi bi-people dashboard-nav-icon"></i>
+                    <span>Usuários</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-analytics">
+                    <i class="bi bi-bar-chart dashboard-nav-icon"></i>
+                    <span>Análises</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-settings">
+                    <i class="bi bi-gear dashboard-nav-icon"></i>
+                    <span>Configurações</span>
+                </div>
+                <div class="dashboard-nav-item">
+                    <i class="bi bi-box-arrow-right dashboard-nav-icon"></i>
+                    <span>Sair</span>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="dashboard-content">
+            <!-- Container de notificações -->
+            <div class="admin-notifications-container"></div>
+            
+            <!-- Botão de toggle para sidebar mobile -->
+            <button class="dashboard-sidebar-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <!-- Seção: Visão Geral -->
+            <section id="dashboard-overview" class="dashboard-content-section">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Visão Geral</h1>
+                    <div class="dashboard-actions">
+                        <button class="dashboard-button">
+                            <i class="bi bi-download"></i> Exportar
+                        </button>
+                        <button class="dashboard-button dashboard-button-primary">
+                            <i class="bi bi-plus"></i> Nova Promoção
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Cards de estatísticas -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-title">Promoções Ativas</div>
+                        <div class="stat-value">42</div>
+                        <div class="stat-change positive">
+                            <i class="bi bi-arrow-up"></i> 12% desde ontem
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Reservas Hoje</div>
+                        <div class="stat-value">156</div>
+                        <div class="stat-change positive">
+                            <i class="bi bi-arrow-up"></i> 8% desde ontem
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Estabelecimentos</div>
+                        <div class="stat-value">28</div>
+                        <div class="stat-change positive">
+                            <i class="bi bi-arrow-up"></i> 2 novos esta semana
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Taxa de Conversão</div>
+                        <div class="stat-value">24%</div>
+                        <div class="stat-change negative">
+                            <i class="bi bi-arrow-down"></i> 3% desde ontem
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tabela de promoções recentes -->
+                <div class="dashboard-section">
+                    <h2 class="dashboard-section-title">Promoções Recentes</h2>
+                    
+                    <div class="dashboard-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Promoção</th>
+                                    <th>Estabelecimento</th>
+                                    <th>Preço</th>
+                                    <th>Status</th>
+                                    <th>Término</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1234</td>
+                                    <td>Chopp em Dobro</td>
+                                    <td>Bar do Zé</td>
+                                    <td>R$ 12,95</td>
+                                    <td><span class="table-status active">Ativa</span></td>
+                                    <td>Hoje, 22:00</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-pencil"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-trash"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1233</td>
+                                    <td>Café + Croissant</td>
+                                    <td>Café Aroma</td>
+                                    <td>R$ 9,90</td>
+                                    <td><span class="table-status active">Ativa</span></td>
+                                    <td>Hoje, 21:30</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-pencil"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-trash"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1232</td>
+                                    <td>Kit Escolar Completo</td>
+                                    <td>Papelaria Central</td>
+                                    <td>R$ 49,90</td>
+                                    <td><span class="table-status active">Ativa</span></td>
+                                    <td>19/05, 18:00</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-pencil"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-trash"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1231</td>
+                                    <td>Camiseta Básica</td>
+                                    <td>Loja Estilo</td>
+                                    <td>R$ 29,90</td>
+                                    <td><span class="table-status active">Ativa</span></td>
+                                    <td>18/05, 12:00</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-pencil"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-trash"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#1230</td>
+                                    <td>Sessão de Massagem</td>
+                                    <td>Spa Relax</td>
+                                    <td>R$ 69,90</td>
+                                    <td><span class="table-status active">Ativa</span></td>
+                                    <td>18/05, 20:00</td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-pencil"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-trash"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Gráfico de atividade -->
+                <div class="dashboard-section">
+                    <h2 class="dashboard-section-title">Atividade da Plataforma</h2>
+                    
+                    <div class="dashboard-chart">
+                        <!-- Placeholder para gráfico -->
+                        <div class="chart-placeholder">
+                            <div class="chart-placeholder-text">Gráfico de Atividade</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Promoções -->
+            <section id="dashboard-promotions" class="dashboard-content-section hidden">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Gerenciar Promoções</h1>
+                    <div class="dashboard-actions">
+                        <button class="dashboard-button dashboard-button-primary">
+                            <i class="bi bi-plus"></i> Nova Promoção
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="dashboard-filters">
+                    <div class="filter-group">
+                        <label for="filter-status">Status</label>
+                        <select id="filter-status" class="form-select">
+                            <option value="all">Todos</option>
+                            <option value="active">Ativos</option>
+                            <option value="pending">Pendentes</option>
+                            <option value="expired">Expirados</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-category">Categoria</label>
+                        <select id="filter-category" class="form-select">
+                            <option value="all">Todas</option>
+                            <option value="bar">Bar</option>
+                            <option value="cafe">Cafeteria</option>
+                            <option value="papelaria">Papelaria</option>
+                            <option value="moda">Moda</option>
+                            <option value="saude">Saúde & Beleza</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-date">Data</label>
+                        <select id="filter-date" class="form-select">
+                            <option value="all">Todas</option>
+                            <option value="today">Hoje</option>
+                            <option value="tomorrow">Amanhã</option>
+                            <option value="week">Esta Semana</option>
+                            <option value="month">Este Mês</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-search">Buscar</label>
+                        <input type="text" id="filter-search" class="form-input" placeholder="Buscar promoções...">
+                    </div>
+                </div>
+                
+                <!-- Tabela de promoções -->
+                <div class="dashboard-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Promoção</th>
+                                <th>Estabelecimento</th>
+                                <th>Categoria</th>
+                                <th>Preço Original</th>
+                                <th>Preço Promocional</th>
+                                <th>Status</th>
+                                <th>Início</th>
+                                <th>Término</th>
+                                <th>Reservas</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1234</td>
+                                <td>Chopp em Dobro</td>
+                                <td>Bar do Zé</td>
+                                <td>Bar</td>
+                                <td>R$ 25,90</td>
+                                <td>R$ 12,95</td>
+                                <td><span class="table-status active">Ativa</span></td>
+                                <td>17/05, 12:00</td>
+                                <td>18/05, 22:00</td>
+                                <td>32</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-pencil"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-trash"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1233</td>
+                                <td>Café + Croissant</td>
+                                <td>Café Aroma</td>
+                                <td>Cafeteria</td>
+                                <td>R$ 18,50</td>
+                                <td>R$ 9,90</td>
+                                <td><span class="table-status active">Ativa</span></td>
+                                <td>17/05, 08:00</td>
+                                <td>17/05, 21:30</td>
+                                <td>45</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-pencil"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-trash"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1229</td>
+                                <td>Hambúrguer Duplo</td>
+                                <td>Burger House</td>
+                                <td>Alimentação</td>
+                                <td>R$ 32,90</td>
+                                <td>R$ 19,90</td>
+                                <td><span class="table-status expired">Expirada</span></td>
+                                <td>15/05, 11:00</td>
+                                <td>16/05, 23:00</td>
+                                <td>78</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-pencil"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-trash"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1228</td>
+                                <td>Corte de Cabelo</td>
+                                <td>Salão Beleza</td>
+                                <td>Saúde & Beleza</td>
+                                <td>R$ 80,00</td>
+                                <td>R$ 45,00</td>
+                                <td><span class="table-status pending">Pendente</span></td>
+                                <td>19/05, 08:00</td>
+                                <td>19/05, 20:00</td>
+                                <td>0</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-pencil"></i>
+                                        </div>
+                                        <div class="table-action">
+                                            <i class="bi bi-trash"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Paginação -->
+                <div class="dashboard-pagination">
+                    <button class="pagination-button">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="pagination-button active">1</button>
+                    <button class="pagination-button">2</button>
+                    <button class="pagination-button">3</button>
+                    <span class="pagination-ellipsis">...</span>
+                    <button class="pagination-button">10</button>
+                    <button class="pagination-button">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Formulário de Nova Promoção -->
+            <section id="dashboard-new-promotion" class="dashboard-content-section hidden">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Nova Promoção</h1>
+                </div>
+                
+                <div class="form-container">
+                    <form id="new-promotion-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-title" class="form-label">Título da Promoção</label>
+                                <input type="text" id="promotion-title" class="form-input" placeholder="Ex: Chopp em Dobro" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-establishment" class="form-label">Estabelecimento</label>
+                                <select id="promotion-establishment" class="form-select" required>
+                                    <option value="">Selecione um estabelecimento</option>
+                                    <option value="1">Bar do Zé</option>
+                                    <option value="2">Café Aroma</option>
+                                    <option value="3">Papelaria Central</option>
+                                    <option value="4">Loja Estilo</option>
+                                    <option value="5">Spa Relax</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-category" class="form-label">Categoria</label>
+                                <select id="promotion-category" class="form-select" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="bar">Bar</option>
+                                    <option value="cafe">Cafeteria</option>
+                                    <option value="papelaria">Papelaria</option>
+                                    <option value="moda">Moda</option>
+                                    <option value="saude">Saúde & Beleza</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-image" class="form-label">Imagem</label>
+                                <input type="file" id="promotion-image" class="form-input" accept="image/*" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-original-price" class="form-label">Preço Original (R$)</label>
+                                <input type="number" id="promotion-original-price" class="form-input" step="0.01" min="0" placeholder="Ex: 25.90" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-promo-price" class="form-label">Preço Promocional (R$)</label>
+                                <input type="number" id="promotion-promo-price" class="form-input" step="0.01" min="0" placeholder="Ex: 12.95" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-start-date" class="form-label">Data de Início</label>
+                                <input type="datetime-local" id="promotion-start-date" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-end-date" class="form-label">Data de Término</label>
+                                <input type="datetime-local" id="promotion-end-date" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="promotion-description" class="form-label">Descrição</label>
+                            <textarea id="promotion-description" class="form-textarea" placeholder="Descreva os detalhes da promoção..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="promotion-terms" class="form-label">Termos e Condições</label>
+                            <textarea id="promotion-terms" class="form-textarea" placeholder="Informe os termos e condições da promoção..."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="form-button form-button-secondary">Cancelar</button>
+                            <button type="submit" class="form-button form-button-primary">Criar Promoção</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/updates.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempoOff - Promoções Relâmpago em Londrina</title>
+    <meta name="description" content="Descubra ofertas por tempo limitado em restaurantes, cafés, papelarias e outros estabelecimentos de Londrina. Estoque ilimitado. Corra!">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-text">
+                    <span class="logo-text-primary">Ofer</span><span class="logo-text-secondary">tar%</span>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <nav class="nav-menu mobile-hidden">
+                <a href="index.html" class="nav-link active">Início</a>
+                <a href="#" class="nav-link">Como Funciona</a>
+                <a href="#" class="nav-link">Estabelecimentos</a>
+                <a href="#" class="nav-link">Contato</a>
+                <a href="login.html" class="nav-link">Entrar</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Banner rotativo -->
+    <section class="banner">
+        <div class="container banner-content">
+            <h1 class="banner-title">Promoções Relâmpago em Londrina</h1>
+            <p class="banner-subtitle">Ofertas exclusivas por tempo limitado. Garanta já!</p>
+        </div>
+    </section>
+    
+    <!-- Categorias / Segmentos -->
+    <section class="categories">
+        <div class="container">
+            <div class="categories-list">
+                <div class="category-item active" data-category="all">
+                    <i class="bi bi-grid category-icon"></i>
+                    <span class="category-name">Todos</span>
+                </div>
+                <div class="category-item" data-category="bar">
+                    <i class="bi bi-cup-straw category-icon"></i>
+                    <span class="category-name">Bar</span>
+                </div>
+                <div class="category-item" data-category="cafe">
+                    <i class="bi bi-cup-hot category-icon"></i>
+                    <span class="category-name">Cafeteria</span>
+                </div>
+                <div class="category-item" data-category="papelaria">
+                    <i class="bi bi-pencil category-icon"></i>
+                    <span class="category-name">Papelaria</span>
+                </div>
+                <div class="category-item" data-category="moda">
+                    <i class="bi bi-bag category-icon"></i>
+                    <span class="category-name">Moda</span>
+                </div>
+                <div class="category-item" data-category="saude">
+                    <i class="bi bi-heart-pulse category-icon"></i>
+                    <span class="category-name">Saúde & Beleza</span>
+                </div>
+                <div class="category-item" data-category="outros">
+                    <i class="bi bi-three-dots category-icon"></i>
+                    <span class="category-name">Outros</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Promoções em destaque -->
+    <section class="promotions">
+        <div class="container">
+            <h2 class="section-title">Ofertas Relâmpago</h2>
+            
+            <div class="promotions-grid">
+                <!-- Card de promoção 1 -->
+                <div class="promotion-card" data-category="bar">
+                    <img src="./img/Captura de tela 2025-05-17 183345.png" alt="Feijoada vegana" class="promotion-image">
+                    <span class="promotion-badge">Bar/Restaurante</span>
+                    <div class="promotion-content">
+                        <h3 class="promotion-title">Feijoada + Chopp</h3>
+                        <p class="promotion-place">Mi Casa - Quintino</p>
+                        <div class="promotion-prices">
+                            <span class="promotion-original-price">R$ 25,90</span>
+                            <span class="promotion-current-price">R$ 12,95</span>
+                        </div>
+                        <div class="promotion-timer">
+                            <span class="timer-label">TERMINA EM</span>
+                            <span class="timer-countdown" data-end-time="2025-05-18T22:00:00">03:45:22</span>
+                        </div>
+                        <a href="detalhes-bar.html" class="promotion-cta">Quero Agora</a>
+                    </div>
+                </div>
+                
+                <!-- Card de promoção 2 -->
+                <div class="promotion-card" data-category="cafe" href="detalhes.html">
+                    <img src="./img/Captura de tela 2025-05-17 180426.png" class="promotion-image">
+                    <span class="promotion-badge">Cafeteria</span>
+                    <div class="promotion-content">
+                        <h3 class="promotion-title">Café + Croissant</h3>
+                        <p class="promotion-place">Café Aroma - Gleba</p>
+                        <div class="promotion-prices">
+                            <span class="promotion-original-price">R$ 18,50</span>
+                            <span class="promotion-current-price">R$ 9,90</span>
+                        </div>
+                        <div class="promotion-timer">
+                            <span class="timer-label">TERMINA EM</span>
+                            <span class="timer-countdown" data-end-time="2025-05-17T21:30:00">01:15:22</span>
+                        </div>
+                        <a href="detalhes.html" class="promotion-cta">Quero Agora</a>
+                    </div>
+                </div>
+                
+                <!-- Card de promoção 3 -->
+                <div class="promotion-card" data-category="Café e Bar">
+                    <img src="" alt="Kit Escolar Completo" class="promotion-image">
+                    <span class="promotion-badge">Café/Bar</span>
+                    <div class="promotion-content">
+                        <h3 class="promotion-title">Kit Escolar Completo</h3>
+                        <p class="promotion-place">Papelaria Central - Centro</p>
+                        <div class="promotion-prices">
+                            <span class="promotion-original-price">R$ 89,90</span>
+                            <span class="promotion-current-price">R$ 49,90</span>
+                        </div>
+                        <div class="promotion-timer">
+                            <span class="timer-label">TERMINA EM</span>
+                            <span class="timer-countdown" data-end-time="2025-05-19T18:00:00">22:45:22</span>
+                        </div>
+                        <a href="detalhes.html" class="promotion-cta">Quero Agora</a>
+                    </div>
+                </div>
+                
+                <!-- Card de promoção 4 -->
+                <div class="promotion-card" data-category="moda">
+                    <img src="https://via.placeholder.com/300x180?text=Moda+Exemplo" alt="Camiseta Básica" class="promotion-image">
+                    <span class="promotion-badge">Moda</span>
+                    <div class="promotion-content">
+                        <h3 class="promotion-title">Camiseta Básica</h3>
+                        <p class="promotion-place">Loja Estilo - Shopping</p>
+                        <div class="promotion-prices">
+                            <span class="promotion-original-price">R$ 59,90</span>
+                            <span class="promotion-current-price">R$ 29,90</span>
+                        </div>
+                        <div class="promotion-timer">
+                            <span class="timer-label">TERMINA EM</span>
+                            <span class="timer-countdown" data-end-time="2025-05-18T12:00:00">17:45:22</span>
+                        </div>
+                        <a href="detalhes.html" class="promotion-cta">Quero Agora</a>
+                    </div>
+                </div>
+                
+                <!-- Card de promoção 5 -->
+                <div class="promotion-card" data-category="saude">
+                    <img src="https://via.placeholder.com/300x180?text=Saúde+Exemplo" alt="Sessão de Massagem" class="promotion-image">
+                    <span class="promotion-badge">Saúde & Beleza</span>
+                    <div class="promotion-content">
+                        <h3 class="promotion-title">Sessão de Massagem</h3>
+                        <p class="promotion-place">Spa Relax - Zona Sul</p>
+                        <div class="promotion-prices">
+                            <span class="promotion-original-price">R$ 120,00</span>
+                            <span class="promotion-current-price">R$ 69,90</span>
+                        </div>
+                        <div class="promotion-timer">
+                            <span class="timer-label">TERMINA EM</span>
+                            <span class="timer-countdown" data-end-time="2025-05-18T20:00:00">25:45:22</span>
+                        </div>
+                        <a href="detalhes.html" class="promotion-cta">Quero Agora</a>
+                    </div>
+                </div>
+                
+                <!-- Card de promoção 6 -->
+                <div class="promotion-card" data-category="outros">
+                    <img src="https://via.placeholder.com/300x180?text=Cinema+Exemplo" alt="Ingresso de Cinema" class="promotion-image">
+                    <span class="promotion-badge">Entretenimento</span>
+                    <div class="promotion-content">
+                        <h3 class="promotion-title">Ingresso de Cinema</h3>
+                        <p class="promotion-place">Cine Center - Shopping</p>
+                        <div class="promotion-prices">
+                            <span class="promotion-original-price">R$ 32,00</span>
+                            <span class="promotion-current-price">R$ 16,00</span>
+                        </div>
+                        <div class="promotion-timer">
+                            <span class="timer-label">TERMINA EM</span>
+                            <span class="timer-countdown" data-end-time="2025-05-17T23:59:59">04:15:22</span>
+                        </div>
+                        <a href="detalhes.html" class="promotion-cta">Quero Agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Como funciona -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Como Funciona</h2>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <h3 class="step-title">Encontre</h3>
+                    <p class="step-description">Navegue pelas ofertas disponíveis em Londrina e encontre as melhores promoções.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+                    <h3 class="step-title">Reserve</h3>
+                    <p class="step-description">Garanta sua oferta antes que o tempo acabe. Todas as promoções são por tempo limitado.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="bi bi-qr-code"></i>
+                    </div>
+                    <h3 class="step-title">Resgate</h3>
+                    <p class="step-description">Apresente o código QR no estabelecimento e aproveite sua promoção.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <a href="index.html" class="footer-logo">
+                    <div class="footer-logo-text">Ofertar</div>
+                </a>
+                <p class="footer-description">Plataforma de promoções em tempo real para Londrina. Ofertas exclusivas por tempo limitado.</p>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Links Rápidos</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Início</a>
+                    <a href="#" class="footer-link">Como Funciona</a>
+                    <a href="#" class="footer-link">Estabelecimentos</a>
+                    <a href="#" class="footer-link">Contato</a>
+                    <a href="#" class="footer-link">Termos de Uso</a>
+                    <a href="#" class="footer-link">Política de Privacidade</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Categorias</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Bar</a>
+                    <a href="#" class="footer-link">Cafeteria</a>
+                    <a href="#" class="footer-link">Papelaria</a>
+                    <a href="#" class="footer-link">Moda</a>
+                    <a href="#" class="footer-link">Saúde & Beleza</a>
+                    <a href="#" class="footer-link">Outros</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Contato</h3>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt footer-contact-icon"></i>
+                        <span>Londrina, PR</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope footer-contact-icon"></i>
+                        <span>contato@tempooff.com.br</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone footer-contact-icon"></i>
+                        <span>(43) 3000-0000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2025 TempoOff. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/updates.js"></script>
+</body>
+</html>

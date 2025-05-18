@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempoOff - Painel do Estabelecimento</title>
+    <meta name="description" content="Painel de gerenciamento para estabelecimentos da plataforma TempoOff - Promoções em tempo real em Londrina">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Container do Dashboard -->
+    <div class="dashboard establishment">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-logo">
+                <div class="logo-text">
+                    <span class="logo-text-primary">Ofer</span><span class="logo-text-secondary">tar</span>
+                </div>
+            </div>
+            
+            <div class="establishment-info-sidebar">
+                <div class="establishment-avatar">
+                    <img src="https://via.placeholder.com/50x50?text=Café" alt="Café Aroma">
+                </div>
+                <div class="establishment-name">Café Aroma</div>
+                <div class="establishment-type">Cafeteria</div>
+            </div>
+            
+            <nav class="dashboard-nav">
+                <div class="dashboard-nav-item active" data-target="dashboard-overview">
+                    <i class="bi bi-grid dashboard-nav-icon"></i>
+                    <span>Visão Geral</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-promotions">
+                    <i class="bi bi-tag dashboard-nav-icon"></i>
+                    <span>Minhas Promoções</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-new-promotion">
+                    <i class="bi bi-plus-circle dashboard-nav-icon"></i>
+                    <span>Nova Promoção</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-reservations">
+                    <i class="bi bi-calendar-check dashboard-nav-icon"></i>
+                    <span>Reservas</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-analytics">
+                    <i class="bi bi-bar-chart dashboard-nav-icon"></i>
+                    <span>Análises</span>
+                </div>
+                <div class="dashboard-nav-item" data-target="dashboard-profile">
+                    <i class="bi bi-shop dashboard-nav-icon"></i>
+                    <span>Perfil</span>
+                </div>
+                <div class="dashboard-nav-item">
+                    <i class="bi bi-box-arrow-right dashboard-nav-icon"></i>
+                    <span>Sair</span>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo Principal -->
+        <main class="dashboard-content">
+            <!-- Container de notificações -->
+            <div class="admin-notifications-container"></div>
+            
+            <!-- Botão de toggle para sidebar mobile -->
+            <button class="dashboard-sidebar-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <!-- Seção: Visão Geral -->
+            <section id="dashboard-overview" class="dashboard-content-section">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Visão Geral</h1>
+                    <div class="dashboard-actions">
+                        <button class="dashboard-button dashboard-button-primary">
+                            <i class="bi bi-plus"></i> Nova Promoção
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Alerta de promoção prestes a expirar -->
+                <div class="dashboard-alert">
+                    <div class="alert-icon">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Promoção prestes a expirar!</div>
+                        <div class="alert-message">Sua promoção "Café + Croissant" expira hoje às 21:30. <a href="#">Renovar promoção</a></div>
+                    </div>
+                    <button class="alert-close">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                
+                <!-- Cards de estatísticas -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-title">Promoções Ativas</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-change positive">
+                            <i class="bi bi-arrow-up"></i> 1 nova esta semana
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Reservas Hoje</div>
+                        <div class="stat-value">45</div>
+                        <div class="stat-change positive">
+                            <i class="bi bi-arrow-up"></i> 12% desde ontem
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Taxa de Resgate</div>
+                        <div class="stat-value">78%</div>
+                        <div class="stat-change positive">
+                            <i class="bi bi-arrow-up"></i> 5% desde a semana passada
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-title">Faturamento Estimado</div>
+                        <div class="stat-value">R$ 445,50</div>
+                        <div class="stat-change positive">
+                            <i class="bi bi-arrow-up"></i> 22% desde ontem
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Promoções ativas -->
+                <div class="dashboard-section">
+                    <h2 class="dashboard-section-title">Promoções Ativas</h2>
+                    
+                    <div class="dashboard-promotions-grid">
+                        <!-- Promoção 1 -->
+                        <div class="dashboard-promotion-card">
+                            <div class="promotion-card-header">
+                                <img src="https://via.placeholder.com/300x180?text=Café+Exemplo" alt="Café + Croissant" class="promotion-card-image">
+                                <div class="promotion-card-badge">Cafeteria</div>
+                                <div class="promotion-card-timer">
+                                    <span class="timer-label">TERMINA EM</span>
+                                    <span class="timer-countdown" data-end-time="2025-05-17T21:30:00">01:15:22</span>
+                                </div>
+                            </div>
+                            <div class="promotion-card-content">
+                                <h3 class="promotion-card-title">Café + Croissant</h3>
+                                <div class="promotion-card-prices">
+                                    <span class="promotion-card-original-price">R$ 18,50</span>
+                                    <span class="promotion-card-current-price">R$ 9,90</span>
+                                </div>
+                                <div class="promotion-card-stats">
+                                    <div class="promotion-card-stat">
+                                        <i class="bi bi-people"></i>
+                                        <span>45 reservas</span>
+                                    </div>
+                                    <div class="promotion-card-stat">
+                                        <i class="bi bi-check-circle"></i>
+                                        <span>35 resgates</span>
+                                    </div>
+                                </div>
+                                <div class="promotion-card-actions">
+                                    <button class="promotion-card-action">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </button>
+                                    <button class="promotion-card-action">
+                                        <i class="bi bi-arrow-repeat"></i> Renovar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Promoção 2 -->
+                        <div class="dashboard-promotion-card">
+                            <div class="promotion-card-header">
+                                <img src="https://via.placeholder.com/300x180?text=Bolo+Exemplo" alt="Fatia de Bolo" class="promotion-card-image">
+                                <div class="promotion-card-badge">Cafeteria</div>
+                                <div class="promotion-card-timer">
+                                    <span class="timer-label">TERMINA EM</span>
+                                    <span class="timer-countdown" data-end-time="2025-05-18T18:00:00">22:45:22</span>
+                                </div>
+                            </div>
+                            <div class="promotion-card-content">
+                                <h3 class="promotion-card-title">Fatia de Bolo</h3>
+                                <div class="promotion-card-prices">
+                                    <span class="promotion-card-original-price">R$ 12,00</span>
+                                    <span class="promotion-card-current-price">R$ 6,00</span>
+                                </div>
+                                <div class="promotion-card-stats">
+                                    <div class="promotion-card-stat">
+                                        <i class="bi bi-people"></i>
+                                        <span>28 reservas</span>
+                                    </div>
+                                    <div class="promotion-card-stat">
+                                        <i class="bi bi-check-circle"></i>
+                                        <span>22 resgates</span>
+                                    </div>
+                                </div>
+                                <div class="promotion-card-actions">
+                                    <button class="promotion-card-action">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </button>
+                                    <button class="promotion-card-action">
+                                        <i class="bi bi-arrow-repeat"></i> Renovar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reservas recentes -->
+                <div class="dashboard-section">
+                    <h2 class="dashboard-section-title">Reservas Recentes</h2>
+                    
+                    <div class="dashboard-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Promoção</th>
+                                    <th>Cliente</th>
+                                    <th>Data</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CAFE1234</td>
+                                    <td>Café + Croissant</td>
+                                    <td>Maria S.</td>
+                                    <td>Hoje, 14:25</td>
+                                    <td><span class="table-status active">Pendente</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-x-circle"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CAFE1233</td>
+                                    <td>Café + Croissant</td>
+                                    <td>João P.</td>
+                                    <td>Hoje, 13:10</td>
+                                    <td><span class="table-status active">Pendente</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+                                            <div class="table-action">
+                                                <i class="bi bi-x-circle"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>BOLO1232</td>
+                                    <td>Fatia de Bolo</td>
+                                    <td>Ana C.</td>
+                                    <td>Hoje, 12:45</td>
+                                    <td><span class="table-status success">Resgatado</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CAFE1231</td>
+                                    <td>Café + Croissant</td>
+                                    <td>Pedro M.</td>
+                                    <td>Hoje, 11:30</td>
+                                    <td><span class="table-status success">Resgatado</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>BOLO1230</td>
+                                    <td>Fatia de Bolo</td>
+                                    <td>Carla F.</td>
+                                    <td>Hoje, 10:15</td>
+                                    <td><span class="table-status expired">Expirado</span></td>
+                                    <td>
+                                        <div class="table-actions">
+                                            <div class="table-action">
+                                                <i class="bi bi-eye"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Nova Promoção -->
+            <section id="dashboard-new-promotion" class="dashboard-content-section hidden">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Nova Promoção</h1>
+                </div>
+                
+                <div class="form-container">
+                    <form id="establishment-promotion-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-title" class="form-label">Título da Promoção</label>
+                                <input type="text" id="promotion-title" class="form-input" placeholder="Ex: Café + Croissant" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-category" class="form-label">Categoria</label>
+                                <select id="promotion-category" class="form-select" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="cafe" selected>Cafeteria</option>
+                                    <option value="bar">Bar</option>
+                                    <option value="restaurante">Restaurante</option>
+                                    <option value="sobremesa">Sobremesa</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="promotion-image" class="form-label">Imagem</label>
+                            <input type="file" id="promotion-image" class="form-input" accept="image/*" required>
+                            <small class="form-help">Recomendado: 600x360px, formato JPG ou PNG</small>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-original-price" class="form-label">Preço Original (R$)</label>
+                                <input type="number" id="promotion-original-price" class="form-input" step="0.01" min="0" placeholder="Ex: 18.50" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-promo-price" class="form-label">Preço Promocional (R$)</label>
+                                <input type="number" id="promotion-promo-price" class="form-input" step="0.01" min="0" placeholder="Ex: 9.90" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-start-date" class="form-label">Data de Início</label>
+                                <input type="datetime-local" id="promotion-start-date" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-end-date" class="form-label">Data de Término</label>
+                                <input type="datetime-local" id="promotion-end-date" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promotion-quantity" class="form-label">Quantidade Disponível</label>
+                                <input type="number" id="promotion-quantity" class="form-input" min="1" placeholder="Ex: 50" required>
+                                <small class="form-help">Deixe em branco para quantidade ilimitada</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="promotion-limit-per-user" class="form-label">Limite por Usuário</label>
+                                <input type="number" id="promotion-limit-per-user" class="form-input" min="1" placeholder="Ex: 1" value="1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="promotion-description" class="form-label">Descrição</label>
+                            <textarea id="promotion-description" class="form-textarea" placeholder="Descreva os detalhes da promoção..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="promotion-terms" class="form-label">Termos e Condições</label>
+                            <textarea id="promotion-terms" class="form-textarea" placeholder="Informe os termos e condições da promoção..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-checkbox-label">
+                                <input type="checkbox" class="form-checkbox" required>
+                                Concordo com os <a href="#">Termos de Uso</a> da plataforma TempoOff
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="form-button form-button-secondary">Cancelar</button>
+                            <button type="submit" class="form-button form-button-primary">Publicar Promoção</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Seção: Perfil do Estabelecimento -->
+            <section id="dashboard-profile" class="dashboard-content-section hidden">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Perfil do Estabelecimento</h1>
+                    <div class="dashboard-actions">
+                        <button class="dashboard-button dashboard-button-primary">
+                            <i class="bi bi-save"></i> Salvar Alterações
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <form id="establishment-profile-form">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <img src="https://via.placeholder.com/150x150?text=Café" alt="Café Aroma">
+                                <div class="profile-avatar-overlay">
+                                    <i class="bi bi-camera"></i>
+                                </div>
+                            </div>
+                            <div class="profile-header-info">
+                                <h2 class="profile-name">Café Aroma</h2>
+                                <p class="profile-category">Cafeteria</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3 class="form-section-title">Informações Básicas</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-name" class="form-label">Nome do Estabelecimento</label>
+                                    <input type="text" id="profile-name" class="form-input" value="Café Aroma" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-category" class="form-label">Categoria</label>
+                                    <select id="profile-category" class="form-select" required>
+                                        <option value="cafe" selected>Cafeteria</option>
+                                        <option value="bar">Bar</option>
+                                        <option value="restaurante">Restaurante</option>
+                                        <option value="papelaria">Papelaria</option>
+                                        <option value="moda">Moda</option>
+                                        <option value="saude">Saúde & Beleza</option>
+                                        <option value="outros">Outros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profile-description" class="form-label">Descrição</label>
+                                <textarea id="profile-description" class="form-textarea" required>O Café Aroma é um espaço aconchegante no coração de Londrina, oferecendo cafés especiais, doces artesanais e um ambiente perfeito para reuniões e momentos de descontração.</textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3 class="form-section-title">Localização e Contato</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-address" class="form-label">Endereço</label>
+                                    <input type="text" id="profile-address" class="form-input" value="Rua das Flores, 123 - Centro" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-city" class="form-label">Cidade</label>
+                                    <input type="text" id="profile-city" class="form-input" value="Londrina" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-phone" class="form-label">Telefone</label>
+                                    <input type="tel" id="profile-phone" class="form-input" value="(43) 3333-4444" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-email" class="form-label">E-mail</label>
+                                    <input type="email" id="profile-email" class="form-input" value="contato@cafearoma.com.br" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-website" class="form-label">Website</label>
+                                    <input type="url" id="profile-website" class="form-input" value="https://www.cafearoma.com.br">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-instagram" class="form-label">Instagram</label>
+                                    <input type="text" id="profile-instagram" class="form-input" value="@cafearoma">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <h3 class="form-section-title">Horário de Funcionamento</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-hours-weekday" class="form-label">Segunda a Sexta</label>
+                                    <input type="text" id="profile-hours-weekday" class="form-input" value="08:00 - 20:00" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-hours-weekend" class="form-label">Sábado e Domingo</label>
+                                    <input type="text" id="profile-hours-weekend" class="form-input" value="09:00 - 18:00" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="form-button form-button-secondary">Cancelar</button>
+                            <button type="submit" class="form-button form-button-primary">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Seção: Reservas -->
+            <section id="dashboard-reservations" class="dashboard-content-section hidden">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Gerenciar Reservas</h1>
+                    <div class="dashboard-actions">
+                        <button class="dashboard-button">
+                            <i class="bi bi-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="dashboard-filters">
+                    <div class="filter-group">
+                        <label for="filter-status">Status</label>
+                        <select id="filter-status" class="form-select">
+                            <option value="all">Todos</option>
+                            <option value="pending">Pendentes</option>
+                            <option value="redeemed">Resgatados</option>
+                            <option value="expired">Expirados</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-promotion">Promoção</label>
+                        <select id="filter-promotion" class="form-select">
+                            <option value="all">Todas</option>
+                            <option value="cafe">Café + Croissant</option>
+                            <option value="bolo">Fatia de Bolo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-date">Data</label>
+                        <select id="filter-date" class="form-select">
+                            <option value="all">Todas</option>
+                            <option value="today" selected>Hoje</option>
+                            <option value="yesterday">Ontem</option>
+                            <option value="week">Esta Semana</option>
+                            <option value="month">Este Mês</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-search">Buscar</label>
+                        <input type="text" id="filter-search" class="form-input" placeholder="Buscar por código ou cliente...">
+                    </div>
+                </div>
+                
+                <!-- Tabela de reservas -->
+                <div class="dashboard-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Promoção</th>
+                                <th>Cliente</th>
+                                <th>Data da Reserva</th>
+                                <th>Validade</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CAFE1234</td>
+                                <td>Café + Croissant</td>
+                                <td>Maria S.</td>
+                                <td>17/05/2025, 14:25</td>
+                                <td>17/05/2025, 21:30</td>
+                                <td><span class="table-status active">Pendente</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action" title="Confirmar Resgate">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                        <div class="table-action" title="Cancelar">
+                                            <i class="bi bi-x-circle"></i>
+                                        </div>
+                                        <div class="table-action" title="Ver Detalhes">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CAFE1233</td>
+                                <td>Café + Croissant</td>
+                                <td>João P.</td>
+                                <td>17/05/2025, 13:10</td>
+                                <td>17/05/2025, 21:30</td>
+                                <td><span class="table-status active">Pendente</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action" title="Confirmar Resgate">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                        <div class="table-action" title="Cancelar">
+                                            <i class="bi bi-x-circle"></i>
+                                        </div>
+                                        <div class="table-action" title="Ver Detalhes">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BOLO1232</td>
+                                <td>Fatia de Bolo</td>
+                                <td>Ana C.</td>
+                                <td>17/05/2025, 12:45</td>
+                                <td>18/05/2025, 18:00</td>
+                                <td><span class="table-status success">Resgatado</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action" title="Ver Detalhes">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CAFE1231</td>
+                                <td>Café + Croissant</td>
+                                <td>Pedro M.</td>
+                                <td>17/05/2025, 11:30</td>
+                                <td>17/05/2025, 21:30</td>
+                                <td><span class="table-status success">Resgatado</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action" title="Ver Detalhes">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>BOLO1230</td>
+                                <td>Fatia de Bolo</td>
+                                <td>Carla F.</td>
+                                <td>17/05/2025, 10:15</td>
+                                <td>17/05/2025, 12:00</td>
+                                <td><span class="table-status expired">Expirado</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <div class="table-action" title="Ver Detalhes">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Paginação -->
+                <div class="dashboard-pagination">
+                    <button class="pagination-button">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="pagination-button active">1</button>
+                    <button class="pagination-button">2</button>
+                    <button class="pagination-button">3</button>
+                    <span class="pagination-ellipsis">...</span>
+                    <button class="pagination-button">10</button>
+                    <button class="pagination-button">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/updates.js"></script>
+</body>
+</html>
