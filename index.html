@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertar - Promoções Relâmpago em Londrina</title>
+    <title>TempoOff - Promoções Relâmpago em Londrina</title>
     <meta name="description" content="Descubra ofertas por tempo limitado em restaurantes, cafés, papelarias e outros estabelecimentos de Londrina. Estoque ilimitado. Corra!">
-
+    
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Estilos -->
     <link rel="stylesheet" href="css/styles.css">
     
     <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
     <!-- Header -->
@@ -21,52 +23,24 @@
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <div class="logo-text">
-                    <span class="logo-text-primary">%Ofer</span><span class="logo-text-secondary">tar%</span>
+                    <span class="logo-text-primary">Ofer</span><span class="logo-text-secondary">tar%</span>
                 </div>
             </a>
+            
+            <button class="mobile-menu-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <nav class="nav-menu mobile-hidden">
+                <a href="index.html" class="nav-link active">Início</a>
+                <a href="#" class="nav-link">Como Funciona</a>
+                <a href="#" class="nav-link">Estabelecimentos</a>
+                <a href="#" class="nav-link">Contato</a>
+                <a href="login.html" class="nav-link">Entrar</a>
+            </nav>
         </div>
     </header>
-
-    <style>
-        /* HEADER */
-        .header {
-            background: linear-gradient(120deg, #6a11cb, #2575fc);
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* LOGO */
-        .logo-text {
-            font-size: 48px;
-            font-weight: bold;
-            font-family: "Poppins", sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-text-primary {
-            color: #ffcc00; /* Ouro vibrante */
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-        }
-
-        .logo-text-secondary {
-            color: #ffffff;
-            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
-        }
-
-        /* EFEITO DE HOVER */
-        .logo:hover .logo-text-primary,
-        .logo:hover .logo-text-secondary {
-            color: #ff4d00; /* Vermelho fogo */
-            transform: scale(1.1);
-            transition: 0.3s;
-        }
-    </style>
-
+    
     <!-- Banner rotativo -->
     <section class="banner">
         <div class="container banner-content">
